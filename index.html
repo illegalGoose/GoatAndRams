@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goats and Rams</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <img src="photo.png" alt="">
+            <button><i class="fa-solid fa-rotate-right"></i></button>
+        </header>
+        <h4>Number repetitions are prohibited!</h4>
+        <div class="players-nums">
+            <label><button id="goat" onclick="createNums(this.id)">Submit</button><input placeholder="1234" id="goatValue" type="text" maxlength="4" onkeyup="this.value = this.value.replace(/[^\d]/g,'');">Goat</label>
+            <label><button id="ram" onclick="createNums(this.id)">Sumbit</button><input placeholder="1234" id="ramValue" type="text" maxlength="4" onkeyup="this.value = this.value.replace(/[^\d]/g,'');">Ram</label>
+        </div>
+        <div class="guessed-num">
+            <p>Goat go first!</p>
+            <input id="numValue" type="text" maxlength="4" placeholder="1234" onkeyup="this.value = this.value.replace(/[^\d]/g,'');"><button onclick="move()">Submit</button>
+        </div>
+        <div class="list-of-nums">
+            <div class="goat-guesses">
+                <h3>Goat's Guess</h3>
+                <ul id="goat-list">
+                </ul>
+            </div>
+            <hr>
+            <div class="ram-guesses">
+                <h3>Ram's Guess</h3>
+                <ul id="ram-list">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>

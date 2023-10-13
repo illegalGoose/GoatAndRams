@@ -1,0 +1,131 @@
+body{
+    margin: 0;
+    padding: 20px;
+}
+
+img{
+    width: 300px;
+}
+
+.wrapper{
+    width: 600px;
+    height: auto;
+    background-color: #ffdc74;
+    margin: auto;
+    border-radius: 5px;
+    border: 1px solid;
+    box-shadow: 0px 0px 20px;
+}
+
+.wrapper header{
+    display: flex;
+    justify-content: end;
+    font-size: 30px;
+    padding: 15px;
+    gap: 88px;
+}
+
+header button{
+    font-size: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+header button:hover{
+    transform: rotate(360deg);
+    transition: 0.4s;
+}
+
+.players-nums{
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+.players-nums label{
+    display: flex;
+    flex-direction: column-reverse;
+    font-size: 20px;
+}
+
+.players-nums input{
+    border-radius: 5px;
+}
+
+.players-nums button{
+    margin-top: 5px;
+    height: 25px;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0px 25px 44px 3px;
+}
+
+.guessed-num{
+    display: grid;
+    justify-content: center;
+    margin-top: 25px;
+    gap: 5px;
+}
+
+.guessed-num p{
+    margin: 0;
+    font-size: 30px;
+    font-weight: 600;
+    opacity: 0;
+    transition: 0.6s;
+    text-align: center;
+}
+
+.guessed-num input{
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.guessed-num button{
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0px 25px 44px 3px lightblue;
+}
+.guessed-num input::placeholder{
+    font-style: italic;
+    color: rgb(108, 108, 108);
+}
+
+.list-of-nums{
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 100px;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.list-of-nums ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+hr{
+    background-color: black;
+    outline: groove;
+    opacity: 0;
+}
+
+h3{
+    margin: 0;
+    opacity: 0;
+    transition: 0.6s;
+}
+
+.wrapper h4{
+    margin: 0;
+    text-align: center;
+    color: red;
+    text-shadow: 0px 0px 1px black;
+    opacity: 0;
+}
