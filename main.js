@@ -8,6 +8,7 @@ const nextMove = document.querySelector("p");
 const guesses = document.querySelectorAll("h3");
 const horizontalLine = document.querySelector("hr");
 const error = document.querySelector("h4");
+const resetBtn = document.getElementById("reset");
 
 function createNums(clicked_id) {
     if(clicked_id == "goat"){
@@ -90,6 +91,7 @@ function move() {
                         goatList.appendChild(li);
                         if(ram == 4){
                             nextMove.textContent = "GOAT WON!"
+                            resetBtn.style.opacity = "1";
                         }
                     }
                     else{
@@ -109,7 +111,8 @@ function move() {
                         li.textContent = guessRamNum + ' ' + '(' + ram.toString() + 'r' + ' ' + goat.toString() + 'g' + ')' ;
                         ramList.appendChild(li);
                         if(ram == 4){
-                            nextMove.textContent = "RAM WON!"
+                            nextMove.textContent = "RAM WON!";
+                            resetBtn.style.opacity = "1";
                         }
                     }
                 }else{
@@ -124,3 +127,18 @@ function move() {
         }
     }
 }
+
+function resetGame () {
+    goatNum = '';
+    ramNum = '';
+    goatList.innerHTML = "";
+    ramList.innerHTML = "";
+    guesses[0].style.opacity = "0";
+    guesses[1].style.opacity = "0";
+    horizontalLine.style.opacity = "0";
+    resetBtn.style.opacity = "0";
+    nextMove.textContent = "Goat go first!";
+    nextMove.style.opacity = "0";
+}
+
+resetBtn.addEventListener('click', resetGame);

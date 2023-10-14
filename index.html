@@ -11,7 +11,6 @@
     <div class="wrapper">
         <header>
             <img src="photo.png" alt="">
-            <button><i class="fa-solid fa-rotate-right"></i></button>
         </header>
         <h4>Number repetitions are prohibited!</h4>
         <div class="players-nums">
@@ -19,7 +18,10 @@
             <label><button id="ram" onclick="createNums(this.id)">Sumbit</button><input placeholder="1234" id="ramValue" type="text" maxlength="4" onkeyup="this.value = this.value.replace(/[^\d]/g,'');">Ram</label>
         </div>
         <div class="guessed-num">
-            <p>Goat go first!</p>
+            <div class="reset">
+                <button id="reset"><i class="fa-solid fa-rotate-right"></i></button>
+                <p>Goat go first!</p>
+            </div>
             <input id="numValue" type="text" maxlength="4" placeholder="1234" onkeyup="this.value = this.value.replace(/[^\d]/g,'');"><button onclick="move()">Submit</button>
         </div>
         <div class="list-of-nums">
