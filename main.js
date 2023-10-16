@@ -120,6 +120,11 @@ function move(event) {
                             resetBtn.style.opacity = "1";
                             numValue.setAttribute('readonly','');
                         }
+                        else{
+                            nextMove.textContent = "GOAT IS STILL WINNER!";
+                            resetBtn.style.opacity = "1";
+                            numValue.setAttribute('readonly','');
+                        }
                     }
                     else{
                         let goat = 0;
