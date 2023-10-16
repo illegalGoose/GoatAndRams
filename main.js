@@ -10,8 +10,9 @@ const horizontalLine = document.querySelector("hr");
 const error = document.querySelector("h4");
 const resetBtn = document.getElementById("reset");
 
-function createNums(clicked_id) {
-    if(clicked_id == "goat"){
+function createNums(event) {
+    event.preventDefault();
+    if(event.target.id == "goat-form"){
         if(document.getElementById("goatValue").value.length == 4){
             let unique = document.getElementById("goatValue").value;
             let set = new Set(unique);
@@ -19,7 +20,6 @@ function createNums(clicked_id) {
                 goatNum = document.getElementById("goatValue").value;
                 document.getElementById("goatValue").value = '';
                 console.log(goatNum);
-                console.log(goatNum[0])
                 firstTurn();
             }else{
                 error.style.opacity = "1";
@@ -63,7 +63,9 @@ function firstTurn() {
     }
 }
 
-function move() {
+function move(event) {
+    event.preventDefault();
+    console.log(goatNum);
     if(goatNum != ''){
         if(ramNum != ''){
             if(numValue.value.length == 4){

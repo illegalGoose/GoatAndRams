@@ -10,19 +10,17 @@ img{
 .wrapper{
     width: 600px;
     height: auto;
+    min-height: 500px;
     background-color: #ffdc74;
+    background-image: url(photo.png);
+    background-size: 30%;
     margin: auto;
     border-radius: 5px;
     border: 1px solid;
     box-shadow: 0px 0px 20px;
-}
-
-.wrapper header{
-    display: flex;
-    justify-content: center;
-    font-size: 30px;
-    padding: 0 15px 0 15px;
-    gap: 88px;
+    background-position: 50% 170%;
+    background-size: 400px;
+    background-repeat: no-repeat;
 }
 
 .players-nums{
@@ -65,6 +63,11 @@ img{
     opacity: 0;
     transition: 0.6s;
     text-align: center;
+    text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+}
+
+.guessed-num form{
+    display: contents;
 }
 
 .guessed-num input{
@@ -88,10 +91,12 @@ img{
 
 .list-of-nums{
     display: flex;
-    justify-content: space-between;
     padding-inline: 100px;
     font-size: 20px;
     margin-top: 20px;
+    font-weight: 900;
+    text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+    font-family: sans-serif;
 }
 
 .list-of-nums ul{
@@ -135,4 +140,41 @@ h3{
 .reset button:hover{
     transform: rotate(360deg);
     transition: 0.4s;
+}
+
+@media screen and (max-width: 400px) {
+    .wrapper{
+        width: auto;
+        height: auto;
+        min-height: 500px;
+        background-color: #ffdc74;
+        background-image: url(photo.png);
+        background-size: 30%;
+        margin: auto;
+        border-radius: 5px;
+        border: 1px solid;
+        box-shadow: 0px 0px 20px;
+        background-position: 50% 170%;
+        background-size: 400px;
+        background-repeat: no-repeat;
+    }
+
+    .players-nums {
+        display: flex;
+        flex-direction: column;
+        width: 200px;
+        margin-left: 20%;
+        gap: 0;
+    }
+
+    .list-of-nums {
+        display: flex;
+        justify-content: space-between;
+        padding-inline: 5px;
+        font-size: 20px;
+        margin-top: 20px;
+        font-weight: 900;
+        text-shadow: -1px -1px 0 white, 1px -1px 0 white, -1px 1px 0 white, 1px 1px 0 white;
+        font-family: sans-serif;
+    }
 }

@@ -9,20 +9,17 @@
 </head>
 <body>
     <div class="wrapper">
-        <header>
-            <img src="photo.png" alt="">
-        </header>
         <h4>Number repetitions are prohibited!</h4>
         <div class="players-nums">
-            <label><button id="goat" onclick="createNums(this.id)">Submit</button><input placeholder="1234" id="goatValue" type="text" maxlength="4" onkeyup="this.value = this.value.replace(/[^\d]/g,'');">Goat</label>
-            <label><button id="ram" onclick="createNums(this.id)">Sumbit</button><input placeholder="1234" id="ramValue" type="text" maxlength="4" onkeyup="this.value = this.value.replace(/[^\d]/g,'');">Ram</label>
+            <form id="goat-form" onsubmit="createNums(event)"><label><button id="goat">Submit</button><input placeholder="1234" id="goatValue" type="text" maxlength="4" onkeyup="this.value = this.value.replace(/[^\d]/g,'');">Goat</label></form>
+            <form id="ram-form" onsubmit="createNums(event)"><label><button id="ram">Sumbit</button ><input placeholder="1234" id="ramValue" type="text" maxlength="4" onkeyup="this.value = this.value.replace(/[^\d]/g,'');">Ram</label></form>
         </div>
         <div class="guessed-num">
             <div class="reset">
                 <button id="reset"><i class="fa-solid fa-rotate-right"></i></button>
                 <p>Goat go first!</p>
             </div>
-            <input id="numValue" type="text" maxlength="4" placeholder="1234" onkeyup="this.value = this.value.replace(/[^\d]/g,'');"><button onclick="move()">Submit</button>
+            <form onsubmit="move(event)"><input id="numValue" type="text" maxlength="4" placeholder="1234" onkeyup="this.value = this.value.replace(/[^\d]/g,'');"><button>Submit</button></form>
         </div>
         <div class="list-of-nums">
             <div class="goat-guesses">
