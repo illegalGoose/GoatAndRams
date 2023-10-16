@@ -67,7 +67,9 @@ img{
 }
 
 .guessed-num form{
-    display: contents;
+    display: grid;
+    justify-content: center;
+    gap: 5px;
 }
 
 .guessed-num input{

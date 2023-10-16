@@ -30,8 +30,8 @@ function createNums(event) {
                     error.style.transition = "0.6s";
                 }, 1000);
             }
+            goatValue.setAttribute("readonly", '');
         }
-        goatValue.setAttribute("readonly", '');
     }
     else{
         if(ramValue.value.length == 4){
@@ -49,8 +49,8 @@ function createNums(event) {
                     error.style.transition = "0.6s";
                 }, 1000);
             }
+            ramValue.setAttribute("readonly", '');
         }
-        ramValue.setAttribute("readonly", '');
     }
 }
 
@@ -84,17 +84,39 @@ function move(event) {
                                 goat = goat + 1;
                             }
                         }
-                        console.log(numValue);
                         numValue.value = '';
                         nextMove.textContent = "Ram's turn";
                         let li = document.createElement("li");
                         li.textContent = guessGoatNum + ' ' + '(' + ram.toString() + 'r' + ' ' + goat.toString() + 'g' + ')';
                         goatList.appendChild(li);
-                        if(ram == 4){
+                        let lengthOfGuesses = goatList.getElementsByTagName('li').length;
+                        if(ram == 4 && lengthOfGuesses > 1){
                             nextMove.textContent = "GOAT WON!"
                             resetBtn.style.opacity = "1";
                             numValue.setAttribute('readonly','');
                         }
+                        else{
+                            nextMove.textContent = "GOAT WON! But ram has a chance :)";
+                            resetBtn.style.opacity = "1";
+                        }
+                    }
+                    else if(nextMove.textContent == "GOAT WON! But ram has a chance :)"){
+                        let goat = 0;
+                        let ram = 0;
+                        let guessRamNum = numValue.value;
+                        for(let i = 0; i <= guessRamNum.length - 1; i = i + 1){
+                            if(guessRamNum[i] == goatNum[i]){
+                                ram = ram + 1;
+                            }else if(goatNum.includes(guessRamNum[i])){
+                                goat = goat + 1;
+                            }
+                        }
+                        numValue.value = '';
+                        let li = document.createElement("li");
+                        li.textContent = guessRamNum + ' ' + '(' + ram.toString() + 'r' + ' ' + goat.toString() + 'g' + ')' ;
+                        ramList.appendChild(li);
+                        nextMove.textContent = "We have two winners!";
+                        numValue.setAttribute('readonly','');
                     }
                     else{
                         let goat = 0;
