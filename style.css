@@ -8,7 +8,7 @@ img{
 }
 
 .wrapper{
-    width: 600px;
+    width: auto;
     height: auto;
     min-height: 500px;
     background-color: #ffdc74;
