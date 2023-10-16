@@ -9,17 +9,18 @@ const guesses = document.querySelectorAll("h3");
 const horizontalLine = document.querySelector("hr");
 const error = document.querySelector("h4");
 const resetBtn = document.getElementById("reset");
+const goatValue = document.getElementById("goatValue");
+const ramValue = document.getElementById("ramValue");
 
 function createNums(event) {
     event.preventDefault();
     if(event.target.id == "goat-form"){
-        if(document.getElementById("goatValue").value.length == 4){
-            let unique = document.getElementById("goatValue").value;
+        if(goatValue.value.length == 4){
+            let unique = goatValue.value;
             let set = new Set(unique);
             if(set.size == 4){
-                goatNum = document.getElementById("goatValue").value;
-                document.getElementById("goatValue").value = '';
-                console.log(goatNum);
+                goatNum = goatValue.value;
+                goatValue.value = '';
                 firstTurn();
             }else{
                 error.style.opacity = "1";
@@ -30,15 +31,15 @@ function createNums(event) {
                 }, 1000);
             }
         }
+        goatValue.setAttribute("readonly", '');
     }
     else{
-        if(document.getElementById("ramValue").value.length == 4){
-            let unique = document.getElementById("ramValue").value;
+        if(ramValue.value.length == 4){
+            let unique = ramValue.value;
             let set = new Set(unique);
             if(set.size == 4){
-                ramNum = document.getElementById("ramValue").value;
-                document.getElementById("ramValue").value = '';
-                console.log(ramNum);
+                ramNum = ramValue.value;
+                ramValue.value = '';
                 firstTurn();
             }else{
                 error.style.opacity = "1";
@@ -49,6 +50,7 @@ function createNums(event) {
                 }, 1000);
             }
         }
+        ramValue.setAttribute("readonly", '');
     }
 }
 
@@ -65,7 +67,6 @@ function firstTurn() {
 
 function move(event) {
     event.preventDefault();
-    console.log(goatNum);
     if(goatNum != ''){
         if(ramNum != ''){
             if(numValue.value.length == 4){
@@ -76,7 +77,6 @@ function move(event) {
                         let goat = 0;
                         let ram = 0;
                         let guessGoatNum = numValue.value;
-                        console.log(guessGoatNum);
                         for(let i = 0; i <= guessGoatNum.length - 1; i = i + 1){
                             if(guessGoatNum[i] == ramNum[i]){
                                 ram = ram + 1;
@@ -84,8 +84,7 @@ function move(event) {
                                 goat = goat + 1;
                             }
                         }
-                        console.log(goat);
-                        console.log(ram);
+                        console.log(numValue);
                         numValue.value = '';
                         nextMove.textContent = "Ram's turn";
                         let li = document.createElement("li");
@@ -94,6 +93,7 @@ function move(event) {
                         if(ram == 4){
                             nextMove.textContent = "GOAT WON!"
                             resetBtn.style.opacity = "1";
+                            numValue.setAttribute('readonly','');
                         }
                     }
                     else{
@@ -115,6 +115,7 @@ function move(event) {
                         if(ram == 4){
                             nextMove.textContent = "RAM WON!";
                             resetBtn.style.opacity = "1";
+                            numValue.setAttribute('readonly','');
                         }
                     }
                 }else{
@@ -141,6 +142,9 @@ function resetGame () {
     resetBtn.style.opacity = "0";
     nextMove.textContent = "Goat go first!";
     nextMove.style.opacity = "0";
+    numValue.removeAttribute('readonly');
+    goatValue.removeAttribute('readonly');
+    ramValue.removeAttribute('readonly');
 }
 
 resetBtn.addEventListener('click', resetGame);

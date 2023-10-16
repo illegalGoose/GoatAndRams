@@ -12,8 +12,7 @@ img{
     height: auto;
     min-height: 500px;
     background-color: #ffdc74;
-    background-image: url(photo.png);
-    background-size: 30%;
+    background-image: url(GoatsRams.png);
     margin: auto;
     border-radius: 5px;
     border: 1px solid;
@@ -21,6 +20,7 @@ img{
     background-position: 50% 170%;
     background-size: 400px;
     background-repeat: no-repeat;
+    background-blend-mode: multiply;
 }
 
 .players-nums{
