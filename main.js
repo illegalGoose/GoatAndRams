@@ -89,15 +89,9 @@ function move(event) {
                         let li = document.createElement("li");
                         li.textContent = guessGoatNum + ' ' + '(' + ram.toString() + 'r' + ' ' + goat.toString() + 'g' + ')';
                         goatList.appendChild(li);
-                        let lengthOfGuesses = goatList.getElementsByTagName('li').length;
-                        if(ram == 4 && lengthOfGuesses <= 1){
+                        if(ram == 4){
                             nextMove.textContent = "GOAT WON! But ram has a chance :)"
                             resetBtn.style.opacity = "1";
-                        }
-                        else if (ram == 4){
-                            nextMove.textContent = "GOAT WON!";
-                            resetBtn.style.opacity = "1";
-                            numValue.setAttribute('readonly','');
                         }
                     }
                     else if(nextMove.textContent == "GOAT WON! But ram has a chance :)"){
@@ -116,12 +110,38 @@ function move(event) {
                         li.textContent = guessRamNum + ' ' + '(' + ram.toString() + 'r' + ' ' + goat.toString() + 'g' + ')' ;
                         ramList.appendChild(li);
                         if(ram == 4){
-                            nextMove.textContent = "We have two winners!";
+                            nextMove.textContent = "We have a draw!";
                             resetBtn.style.opacity = "1";
                             numValue.setAttribute('readonly','');
                         }
                         else{
                             nextMove.textContent = "GOAT IS STILL WINNER!";
+                            resetBtn.style.opacity = "1";
+                            numValue.setAttribute('readonly','');
+                        }
+                    }
+                    else if(nextMove.textContent == "RAM WON! But goat has a chance :)"){
+                        let goat = 0;
+                        let ram = 0;
+                        let guessGoatNum = numValue.value;
+                        for(let i = 0; i <= guessGoatNum.length - 1; i = i + 1){
+                            if(guessGoatNum[i] == ramNum[i]){
+                                ram = ram + 1;
+                            }else if(ramNum.includes(guessGoatNum[i])){
+                                goat = goat + 1;
+                            }
+                        }
+                        numValue.value = '';
+                        let li = document.createElement("li");
+                        li.textContent = guessGoatNum + ' ' + '(' + ram.toString() + 'r' + ' ' + goat.toString() + 'g' + ')' ;
+                        ramList.appendChild(li);
+                        if(ram == 4){
+                            nextMove.textContent = "We have a draw!";
+                            resetBtn.style.opacity = "1";
+                            numValue.setAttribute('readonly','');
+                        }
+                        else{
+                            nextMove.textContent = "RAM IS STILL WINNER!";
                             resetBtn.style.opacity = "1";
                             numValue.setAttribute('readonly','');
                         }
@@ -143,9 +163,8 @@ function move(event) {
                         li.textContent = guessRamNum + ' ' + '(' + ram.toString() + 'r' + ' ' + goat.toString() + 'g' + ')' ;
                         ramList.appendChild(li);
                         if(ram == 4){
-                            nextMove.textContent = "RAM WON!";
+                            nextMove.textContent = "RAM WON! But goat has a chance :)";
                             resetBtn.style.opacity = "1";
-                            numValue.setAttribute('readonly','');
                         }
                     }
                 }else{
