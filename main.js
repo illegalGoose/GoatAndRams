@@ -134,7 +134,7 @@ function move(event) {
                         numValue.value = '';
                         let li = document.createElement("li");
                         li.textContent = guessGoatNum + ' ' + '(' + ram.toString() + 'r' + ' ' + goat.toString() + 'g' + ')' ;
-                        ramList.appendChild(li);
+                        goatList.appendChild(li);
                         if(ram == 4){
                             nextMove.textContent = "We have a draw!";
                             resetBtn.style.opacity = "1";
