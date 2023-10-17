@@ -22,6 +22,7 @@ function createNums(event) {
                 goatNum = goatValue.value;
                 goatValue.value = '';
                 firstTurn();
+                goatValue.setAttribute("readonly", '');
             }else{
                 error.style.opacity = "1";
                 error.style.transition = "0.2s";
@@ -30,7 +31,6 @@ function createNums(event) {
                     error.style.transition = "0.6s";
                 }, 1000);
             }
-            goatValue.setAttribute("readonly", '');
         }
     }
     else{
@@ -41,6 +41,7 @@ function createNums(event) {
                 ramNum = ramValue.value;
                 ramValue.value = '';
                 firstTurn();
+                ramValue.setAttribute("readonly", '');
             }else{
                 error.style.opacity = "1";
                 error.style.transition = "0.2s";
@@ -49,7 +50,6 @@ function createNums(event) {
                     error.style.transition = "0.6s";
                 }, 1000);
             }
-            ramValue.setAttribute("readonly", '');
         }
     }
 }
